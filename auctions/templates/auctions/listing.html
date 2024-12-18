@@ -41,7 +41,7 @@
                                 Current Price: ₹ {{product.currentBid}} 
                                 {% if bidMsg is not None %}
                                     <small class="text-muted">({{bidMsg}} among {{totalBids}} other(s))</small>
-                                {% else %}
+                                {% elif user.is_authenticated and user.id != product.listedBy.id %}
                                     <small class="text-muted">(Be the first to bid)</small>
                                 {% endif %}
                             </h5>

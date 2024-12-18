@@ -6,7 +6,6 @@ from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-
 from .models import *
 
 class CreateListingForm(forms.ModelForm):
@@ -19,15 +18,15 @@ class CreateListingForm(forms.ModelForm):
                 'cols': 2, 
                 'style': 'height: 100px; width: max-width; min-width: 40vw;'
             }),
-            "image": forms.URLInput(attrs= {
-                'placeholder': "(optional)"
-            })
+            "image": forms.ClearableFileInput(attrs={
+                'placeholder': "(optional)",
+            }),
         }
         labels = {
             'title': 'Product Name',
             'description': 'Product Description',
             'currentBid': 'Starting Bid',
-            'image': 'Image URL',
+            'image': 'Product Image',
             'category': 'Product Category'
         }
         
