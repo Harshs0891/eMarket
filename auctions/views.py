@@ -139,7 +139,6 @@ def create_listing(request):
         })
 
 def listing_view(request, pid):
-
     try:
         listing = Listing.objects.get(pk=pid)
     except Listing.DoesNotExist:
@@ -169,8 +168,6 @@ def listing_view(request, pid):
         else:
             return HttpResponse("Auction no longer exists!..")
     else:
-        #comments = Comment.objects.filter(auction=pid)
-
         if highestBid is not None:
             if highestBid.user == request.user.id:
                 bidMsg = "Your bid is the highest bid"

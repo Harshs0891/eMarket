@@ -17,8 +17,42 @@
     <div>
         {% if user.is_authenticated %}
         Signed in as <strong>{{ user.username }}</strong>.
+        <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link text-success" href="{% url 'watchlist' %}">
+                <i class="fas fa-bookmark nav-icon"></i>
+                <span class="nav-txt">Watchlist</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-success" href="{% url 'create_listing' %}">
+                <i class="fas fa-plus-circle nav-icon"></i>
+                <span class="nav-txt">Create Listing</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-danger" href="{% url 'logout' %}">
+                <i class="fas fa-power-off nav-icon"></i>
+                <span class="nav-txt">Logout</span>
+            </a>
+        </li>
+    </ul>
         {% else %}
         Not signed in.
+        <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link text-success" href="{% url 'login' %}">
+                <i class="fas fa-sign-in-alt nav-icon"></i>
+                <span class="nav-txt">Login</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-success" href="{% url 'register' %}">
+                <i class="fas fa-user-plus nav-icon"></i>
+                <span class="nav-txt">Register</span>
+            </a>
+        </li>
+        </ul>
         {% endif %}
     </div>
     <ul class="nav">
@@ -106,43 +140,6 @@
                 <span class="nav-txt">Closed Auctions</span>
             </a>
         </li>
-            
-        {% if user.is_authenticated %}
-
-        <li class="nav-item">
-            <a class="nav-link text-success" href="{% url 'watchlist' %}">
-                <i class="fas fa-bookmark nav-icon"></i>
-                <span class="nav-txt">Watchlist</span>
-            </a>
-        </li>
-        
-        <li class="nav-item">
-            <a class="nav-link text-success" href="{% url 'create_listing' %}">
-                <i class="fas fa-plus-circle nav-icon"></i>
-                <span class="nav-txt">Create Listing</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-danger" href="{% url 'logout' %}">
-                <i class="fas fa-power-off nav-icon"></i>
-                <span class="nav-txt">Logout</span>
-            </a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-            <a class="nav-link text-success" href="{% url 'login' %}">
-                <i class="fas fa-sign-in-alt nav-icon"></i>
-                <span class="nav-txt">Login</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-success" href="{% url 'register' %}">
-                <i class="fas fa-user-plus nav-icon"></i>
-                <span class="nav-txt">Register</span>
-            </a>
-        </li>
-        {% endif %}
     </ul>
     <hr>
     {% block body %}
